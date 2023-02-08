@@ -1,0 +1,5 @@
+<button class="hamburger" (click)="handleIsOpen()" [attr.aria-expanded]="isOpen" aria-label="Botão de hamburguer para expandir o menu" (keyup.space)="handleIsOpen()">
+  <span class="hamburger__line" [class.open]="isOpen"></span>
+  <span class="hamburger__line" [class.open]="isOpen"></span>
+  <span class="hamburger__line" [class.open]="isOpen"></span>
+</button>

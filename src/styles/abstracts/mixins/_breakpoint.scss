@@ -1,0 +1,35 @@
+$mobile: 480px;
+$tablet: 640px;
+$laptop: 1024px;
+$desktop: 1280px;
+
+@mixin breakpoint($point) {
+  @if $point ==mobile {
+    @media (max-width: $mobile) {
+      @content;
+    }
+  }
+
+  @if $point ==tablet {
+    @media only screen and (min-width: $mobile) and (max-width: $tablet) {
+      @content;
+    }
+  }
+
+  @if $point ==laptop {
+    @media only screen and (min-width: $tablet + 1) and (max-width: $laptop) {
+      @content;
+    }
+  }
+
+  @if $point ==desktop {
+    @media only screen and (min-width: $laptop +1) and (max-width: $desktop) {
+      @content;
+    }
+  }
+  @if $point == desktop_xl {
+    @media only screen and (min-width: $desktop) {
+      @content;
+    }
+  }
+}

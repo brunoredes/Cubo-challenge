@@ -1,0 +1,29 @@
+<app-hamburger
+  [isOpen]="isMenuOpen"
+  *ngIf="screenWidth < 530"
+  (handleClick)="showHeaderNavigation($event)"
+></app-hamburger>
+<header class="header">
+  <div class="header__container d-flex">
+    <div class="header__logo d-flex">
+      <img
+        class="header__logo-image"
+        src="assets/images/Cubo-logo.png"
+        alt="Logo"
+        loading="lazy"
+      />
+    </div>
+    <nav
+      class="header__nav d-flex"
+      [ngStyle]="{
+        display: isMenuOpen || screenWidth >= 530 ? 'flex' : 'none'
+      }"
+      [class.open]="isMenuOpen"
+    >
+      <a href="#" class="header__nav-item">Home</a>
+      <a href="#" class="header__nav-item">Menu 1</a>
+      <a href="#" class="header__nav-item">Menu 2</a>
+      <a href="#" class="header__nav-item">Menu 3</a>
+    </nav>
+  </div>
+</header>

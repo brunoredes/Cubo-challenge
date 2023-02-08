@@ -1,0 +1,16 @@
+$grid-columns: 12;
+$grid-gutter: 1rem;
+$grid-breakpoint: 600px;
+
+// mixin
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  grid-column-gap: $grid-gutter;
+  margin-left: -$grid-gutter;
+  margin-right: -$grid-gutter;
+
+  @media (min-width: $grid-breakpoint) {
+    grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+  }
+}

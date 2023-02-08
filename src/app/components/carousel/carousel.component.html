@@ -1,0 +1,39 @@
+<section class="carousel">
+  <div
+    class="carousel__item"
+    *ngFor="let image of images; let i = index"
+    [ngClass]="{ 'carousel__item--active': i === activeIndex }"
+  >
+    <img
+      [src]="image.src"
+      [alt]="image.alt"
+      [attr.aria-hidden]="i !== activeIndex"
+      loading="lazy"
+    />
+  </div>
+
+  <button
+    class="carousel__arrow carousel__arrow--left"
+    (click)="previous()"
+    (keyup.space)="previous()"
+    aria-label="Previous"
+    tabindex="0"
+  >
+    <
+    <!-- <app-arrow arrowDirection="left"></app-arrow> -->
+  </button>
+  <button
+    class="carousel__arrow carousel__arrow--right"
+    (click)="next()"
+    (keyup.space)="next()"
+    tabindex="0"
+  >></button>
+</section>
+<div class="carousel__dots">
+  <span
+    class="carousel__dot"
+    *ngFor="let image of images; let i = index"
+    [ngClass]="{ 'carousel__dot--active': i === activeIndex }"
+    aria-hidden="true"
+  ></span>
+</div>

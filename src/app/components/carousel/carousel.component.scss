@@ -1,0 +1,107 @@
+@import '/src/styles/abstracts/mixins/breakpoint';
+
+:host {
+  .carousel {
+    @include breakpoint(mobile) {
+      width: auto;
+    }
+
+    display: flex;
+    overflow: hidden;
+    position: relative;
+
+    &__item {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 600ms ease-in;
+
+      &--active {
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+
+      img {
+        width: 100%;
+
+        @include breakpoint(mobile) {
+          height: 10rem;
+        }
+
+        @include breakpoint(tablet) {
+          height: 14rem;
+        }
+
+        @include breakpoint(laptop) {
+          height: 18rem;
+        }
+
+        @include breakpoint(desktop) {
+          height: 24rem;
+        }
+
+        @include breakpoint(desktop_xl) {
+          height: 28rem;
+        }
+
+      }
+    }
+
+    &__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &--left {
+        left: 0;
+      }
+
+      &--right {
+        right: 0;
+      }
+    }
+
+    &__dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+
+    }
+
+    &__dot {
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid #dedfe0;
+      border-radius: 50%;
+      margin: 0 0.5rem;
+
+      &--active {
+        border: 2px solid #e86e2a;
+      }
+    }
+
+    @media (max-width: 768px) {
+      &__item img {
+        max-width: 100%;
+      }
+    }
+  }
+}

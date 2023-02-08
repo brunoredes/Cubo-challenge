@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@use './base/reset';
+@use './base/typography';
+@import './abstracts/mixins/grid-mixin';
+@import './abstracts/mixins/flex-mixin';
+@import './abstracts/mixins/outline';
+
+
+html {
+  font-size: 16px;
+  min-width: 320px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+.d-flex {
+  @include flex;
+}
+
+
+a,
+button,
+input,
+textarea,
+select {
+  @include outline-on-focus;
+}

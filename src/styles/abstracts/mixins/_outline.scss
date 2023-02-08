@@ -1,0 +1,6 @@
+@mixin outline-on-focus {
+  &:focus {
+    outline: 2px solid #333;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,159 @@
+@import '/src/styles/abstracts/mixins/breakpoint';
+$flex-child-properties: 0 0 auto;
+
+:host {
+  .header {
+    &__container {
+      background-color: #ffffff;
+      align-items: center;
+
+      @include breakpoint(mobile) {
+        padding: 1rem;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      @include breakpoint(tablet) {
+        padding: .75rem 2.25rem;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      @include breakpoint(laptop) {
+        padding: .75rem 6.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      @include breakpoint(desktop) {
+        padding: .75rem 6.5rem;
+        justify-content: space-between;
+      }
+
+      @include breakpoint(desktop_xl) {
+        padding: .75rem 16.5rem;
+        justify-content: space-between;
+      }
+    }
+
+    &__logo {
+      flex: 1 0 auto;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+
+      @include breakpoint(tablet) {
+        flex: $flex-child-properties;
+        width: 50%;
+      }
+
+      @include breakpoint(laptop) {
+        flex: $flex-child-properties;
+        width: 50%;
+      }
+
+      @include breakpoint(desktop) {
+        flex: $flex-child-properties;
+        width: 50%;
+      }
+
+      @include breakpoint(desktop_xl) {
+        flex: $flex-child-properties;
+        width: 50%;
+      }
+
+    }
+
+    &__nav {
+      flex: 1 0 auto;
+      width: 100%;
+      align-items: center;
+      // justify-content: space-around;
+
+      @include breakpoint(mobile) {
+        padding-top: 1rem;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      @include breakpoint(tablet) {
+        flex-direction: row;
+        justify-content: space-around;
+        flex: $flex-child-properties;
+        width: 50%;
+      }
+
+      @include breakpoint(laptop) {
+        justify-content: space-between;
+        flex-direction: row;
+        flex: $flex-child-properties;
+        width: 50%;
+      }
+
+      @include breakpoint(desktop) {
+        justify-content: space-between;
+        flex-direction: row;
+        flex: $flex-child-properties;
+        width: 50%;
+      }
+
+      @include breakpoint(desktop_xl) {
+        justify-content: space-between;
+        flex-direction: row;
+        flex: $flex-child-properties;
+        width: 50%;
+      }
+
+      &-item {
+        padding: .5rem 1rem;
+        width: 100%;
+        text-align: center;
+        &:nth-child(1) {
+          background-color: #e86e2a;
+          color: #fff;
+        }
+        &:hover:not(:nth-child(1)) {
+          background-color: #e86e2a;
+          opacity: .6;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .sequence-item {
+    animation: sequence-animation 4s ease-in-out;
+  }
+
+  .hamburger {
+    &--disabled {
+      display: none;
+    }
+  }
+}
+
+
+
+$sequence-items: 4;
+$animation-duration: 0.4s;
+
+@for $i from 1 through $sequence-items {
+  .sequence-item:nth-child(#{$i}) {
+    animation-delay: ($i - 1) * $animation-duration;
+  }
+}
+
+
+@keyframes sequence-animation {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
